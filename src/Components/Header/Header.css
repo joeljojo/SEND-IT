@@ -1,0 +1,36 @@
+.nav-bar {
+    display: flex;
+    gap: 30%;
+    align-items: center;
+    box-shadow: 0 8px 8px -4px lightblue;
+}
+
+.nav-list ul {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-list ul>li {
+    list-style-type: none;
+    text-transform: uppercase;
+}
+
+.nav-list ul>li a {
+    text-decoration: none;
+}
+
+.nav-list ul>li a:hover {
+    color: #f05146;
+}
+
+.logo img {
+    display: block;
+    width: 60px;
+    margin-left: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: 10px 0 10px 30px;
+}
