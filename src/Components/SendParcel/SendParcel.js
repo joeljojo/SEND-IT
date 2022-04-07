@@ -37,7 +37,7 @@ const [receiver, setReceiver] = useState("");
 const [departurePoint,setDeparturePoint] = useState("");
 const [destinationPoint, setDestinationPoint] = useState("");
 
-const dispach = useDispatch();
+const dispatch = useDispatch();
 
 // Hundle the sendInputFunction
 const sendInput = (event)=>{
@@ -49,11 +49,15 @@ const sendInput = (event)=>{
         startlocation: departurePoint,
         endlocation: destinationPoint
     };
+
+    dispatch(sendParcel(parcel))
     
-    Axios.post('http://localhost:4700/parcel',parcel)
-.then(function(response){
-    console.log(response.data)
-})
+
+    
+//     Axios.post('http://localhost:4700/parcel',parcel)
+// .then(function(response){
+//     console.log(response.data)
+// })
    
    
 }

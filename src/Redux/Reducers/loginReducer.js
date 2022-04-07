@@ -2,7 +2,7 @@ import { USER_LOGIN, USER_LOGOUT } from "../types";
 // intial state
 
 const initialState = {
-    user: [],
+    user: {},
     error: '',
     loading: false
 }
@@ -13,7 +13,7 @@ const loginReducer = (state = initialState, action) => {
         case USER_LOGIN.REQUEST:
             return {
                 ...state,
-                user: [],
+                user: {},
                 loading: true,
                 error: '',
             }
@@ -27,6 +27,7 @@ const loginReducer = (state = initialState, action) => {
         case USER_LOGIN.FAIL:
             return {
                 ...state,
+                user: {},
                 loading: false,
                 error: action.error,
             }
