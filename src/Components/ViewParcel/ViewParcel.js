@@ -36,7 +36,7 @@ const ViewParcel = () => {
   // const { id } = parcel;
   // console.log(id);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // Handle the Edit Parcel
   // const handleEdit = (id) => {
 
