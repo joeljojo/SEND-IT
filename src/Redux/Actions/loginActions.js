@@ -13,14 +13,19 @@ const login = (user) => async (dispatch) => {
       if (res.data.status) {
         dispatch({
           type: USER_LOGIN.SUCCESS,
-          message: "Logged in successfuly",
+          message: res.data.success,
           user: res.data.user,
+          status: res.data.status,
         });
       } else {
         dispatch({
           type: USER_LOGIN.FAIL,
           message: "Login Failed",
+          error: res.data.error,
+          status: res.data.staus,
         });
+
+        console.log(res.data.status);
       }
     });
   } catch (error) {

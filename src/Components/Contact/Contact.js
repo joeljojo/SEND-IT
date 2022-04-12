@@ -62,7 +62,7 @@ const Contact = () => {
               <label>Phone number </label>
             </div>
             <div>
-              <input type="text" placeholder="+254 700000000"></input>
+              <input type="text" placeholder="+254 700000000" required></input>
             </div>
           </div>
           <div className="upper">
@@ -71,6 +71,9 @@ const Contact = () => {
             </div>
             <div className="textarea">
               <textarea></textarea>
+            </div>
+            <div>
+              <input type="submit"></input>
             </div>
           </div>
         </div>

@@ -9,16 +9,23 @@ const sendParcel = (parcel) => async (dispatch) => {
   });
 
   try {
-    await Axios.post("http://localhost:4700/parcel", parcel).then(function (
-      response
-    ) {
-      //console.log(response);
-    });
-
-    dispatch({
-      type: SEND_PARCEL.SUCCESS,
-      message: "Parcel Sent in successfuly",
-    });
+    await Axios.post(`http://localhost:4700/parcel`, parcel).then(
+      (response) => {
+        if (response.data.status) {
+          dispatch({
+            type: SEND_PARCEL.SUCCESS,
+            success: response.data.success,
+            status: response.data.status,
+          });
+        } else {
+          dispatch({
+            type: SEND_PARCEL.FAIL,
+            error: response.data.error,
+            status: response.data.status,
+          });
+        }
+      }
+    );
   } catch (error) {
     dispatch({
       type: SEND_PARCEL.FAIL,
@@ -28,35 +35,39 @@ const sendParcel = (parcel) => async (dispatch) => {
 };
 
 // Get Parcel
-const getParcel = () => async (dispatch) => {
-  dispatch({
-    type: VIEW_PARCEL.REQUEST,
-  });
-
-  try {
-    await Axios.get("http://localhost:4700/parcels").then((res) => {
-      if (res.data.status) {
-        dispatch({
-          type: VIEW_PARCEL.SUCCESS,
-          parcel: res.data.parcel,
-          message: "Parcel Fetched in successfuly",
-        });
-
-        console.log(res.data.parcel);
-      } else {
-        dispatch({
-          type: VIEW_PARCEL.FAIL,
-          message: "Failed",
-        });
-      }
-    });
-  } catch (error) {
+const getParcel =
+  (page = 1, perPage = 10) =>
+  async (dispatch) => {
     dispatch({
-      type: VIEW_PARCEL.FAIL,
-      error: error.message,
+      type: VIEW_PARCEL.REQUEST,
     });
-  }
-};
+
+    try {
+      await Axios.get(
+        `http://localhost:4700/parcels?page=${page}&perPage=${perPage}`
+      ).then((res) => {
+        if (res.data.status) {
+          dispatch({
+            type: VIEW_PARCEL.SUCCESS,
+            parcel: res.data.parcel,
+            message: "Parcel Fetched in successfuly",
+          });
+
+          console.log(res.data.parcel);
+        } else {
+          dispatch({
+            type: VIEW_PARCEL.FAIL,
+            message: "Failed",
+          });
+        }
+      });
+    } catch (error) {
+      dispatch({
+        type: VIEW_PARCEL.FAIL,
+        error: error.message,
+      });
+    }
+  };
 
 // Delete Parcel
 const deleteParcel = (id) => async (dispatch) => {

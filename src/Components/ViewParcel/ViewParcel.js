@@ -32,15 +32,10 @@ const defaultProps = {};
 const ViewParcel = () => {
   const { parcel } = useSelector((state) => state.getParcelState);
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(10);
 
-  // const { id } = parcel;
-  // console.log(id);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // Handle the Edit Parcel
-  // const handleEdit = (id) => {
-
-  // };
 
   // Handle the Delete Parcel
   const handleDelete = (id) => {
@@ -54,31 +49,8 @@ const ViewParcel = () => {
   // Fuction to display parcels
 
   useEffect(() => {
-    dispatch(getParcel());
-  }, [dispatch]);
-
-  // const renderParcels = parcel.map((item) => {
-  //   return (
-  //     <table>
-  // <tr>
-  //   <th>Description</th>
-  //   <th>Sender</th>
-  //   <th>Receiver</th>
-  //   <th>From</th>
-  //   <th>Current</th>
-  //   <th>To</th>
-  // </tr>
-  // <tr>
-  //   <td>{item.description}</td>
-  //   <td>{item.sendernumber}</td>
-  //   <td>{item.receivernumber}</td>
-  //   <td>{item.startlocation}</td>
-  //   <td>{item.currentlocation}</td>
-  //   <td>{item.endlocation}</td>
-  // </tr>
-  //     </table>
-  //   );
-  // });
+    dispatch(getParcel(page, perPage));
+  }, [dispatch, page, perPage]);
   return (
     <div>
       {
@@ -123,6 +95,27 @@ const ViewParcel = () => {
           })}
         </table>
       }
+      <div className="pagination-btn">
+        <select
+          value={perPage}
+          onChange={(e) => {
+            setPerPage(e.target.value);
+            setPage(1);
+          }}
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+        </select>
+        <div>
+          <button onClick={() => setPage(page > 1 ? page - 1 : 1)}>
+            Previous
+          </button>
+          <button onClick={() => setPage(page + 1)}>Next</button>
+        </div>
+      </div>
     </div>
   );
 };

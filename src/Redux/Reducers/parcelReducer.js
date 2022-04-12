@@ -6,6 +6,8 @@ const initialSendParcelState = {
   parcel: {},
   error: "",
   loading: false,
+  success: "",
+  status: false,
 };
 
 //view parcel
@@ -27,6 +29,8 @@ const initialUpdateParcelState = {
   parcel: [],
   error: "",
   loading: false,
+  status: false,
+  message: "",
 };
 // Send Parcel Reducer
 export const sendParcelReducer = (state = initialSendParcelState, action) => {
@@ -37,6 +41,8 @@ export const sendParcelReducer = (state = initialSendParcelState, action) => {
         parcel: {},
         loading: true,
         error: "",
+        status: false,
+        success: "",
       };
     case SEND_PARCEL.SUCCESS:
       return {
@@ -44,12 +50,16 @@ export const sendParcelReducer = (state = initialSendParcelState, action) => {
         parcel: action.parcel,
         loading: false,
         error: "",
+        status: true,
+        success: action.success,
       };
+
     case SEND_PARCEL.FAIL:
       return {
         ...state,
         loading: false,
         error: action.error,
+        status: false,
       };
     default:
       return state;

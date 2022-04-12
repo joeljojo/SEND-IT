@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
+import swal from "sweetalert";
+import "../Login/Login.css";
 import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { login } from "../../Redux/Actions/loginActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 // #region constants
@@ -25,9 +27,35 @@ const defaultProps = {};
 /**
  *
  */
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const loginState = useSelector((state) => state.loginState);
+  const { error, loading, message, status } = loginState;
+  useEffect(() => {
+    console.log(loginState);
+
+    if (status) {
+      swal({
+        icon: "success",
+        text: message,
+      });
+      setTimeout(() => {
+        navigate("/parcels");
+      }, 2000);
+    } else if (loading) {
+      swal({
+        text: "Loading ....",
+      });
+    } else if (error != "") {
+      swal({
+        icon: "error",
+        text: error,
+      });
+    }
+  }, [loginState]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,10 +69,7 @@ const Login = () => {
     };
 
     dispatch(login(user));
-    navigate("/parcels");
   };
-  // dispatch action
-
   return (
     <div>
       <div>

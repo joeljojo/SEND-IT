@@ -6,12 +6,14 @@
 
 .user_left {
   width: 25%;
-  background-color: rgb(143, 115, 115);
+  background-color: rgb(255, 255, 255);
+  border-left: 2px solid rgb(240, 236, 236);
+  border-right: 2px solid rgb(240, 236, 236);
 }
 
 .user_right {
   width: 75%;
-  background-color: rgb(252, 249, 249);
+  background-color: rgb(255, 255, 255);
 }
 
 .user_left ul {
@@ -21,7 +23,7 @@
 .user_left ul > li {
   text-transform: uppercase;
   margin: 30px;
-  font-size: 25px;
+  font-size: 15px;
   text-align: left;
   color: rgb(34, 30, 30);
 }

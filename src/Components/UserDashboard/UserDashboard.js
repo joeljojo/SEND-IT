@@ -36,7 +36,7 @@ const UserDashboard = () => {
             <li>
               <div className="user-dash-home">
                 <div>
-                  <MdOutlineHome size={28} />
+                  <MdOutlineHome size={21} />
                 </div>
                 <div>
                   <Link to="/">home</Link>
@@ -46,7 +46,7 @@ const UserDashboard = () => {
             <li>
               <div className="user-dash-home">
                 <div>
-                  <MdSend size={28} />
+                  <MdSend size={21} />
                 </div>
                 <div>
                   <Link to="sendparcel">send parcel</Link>
@@ -56,7 +56,7 @@ const UserDashboard = () => {
             <li>
               <div className="user-dash-home">
                 <div>
-                  <MdPreview size={28} />
+                  <MdPreview size={21} />
                 </div>
                 <div>
                   <Link to="viewparcel">view parcel</Link>
@@ -66,7 +66,7 @@ const UserDashboard = () => {
             <li>
               <div className="user-dash-home">
                 <div>
-                  <MdLogout size={28} />
+                  <MdLogout size={21} />
                 </div>
                 <div>
                   <Link to="/">logout</Link>
