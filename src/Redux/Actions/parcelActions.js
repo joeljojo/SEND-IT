@@ -95,17 +95,17 @@ const deleteParcel = (id) => async (dispatch) => {
 };
 
 // Update Parcel
-const updateParcel = (id) => async (dispatch) => {
+const updateParcel = (id, parcel) => async (dispatch) => {
   dispatch({
     type: EDIT_PARCEL.REQUEST,
   });
 
   try {
-    await Axios.put(`http://localhost:4700/parcel/${id}`).then(function (
-      response
-    ) {
-      //console.log(response);
-    });
+    await Axios.put(`http://localhost:4700/parcel/${id}`, parcel).then(
+      function (response) {
+        //console.log(response);
+      }
+    );
 
     dispatch({
       type: EDIT_PARCEL.SUCCESS,

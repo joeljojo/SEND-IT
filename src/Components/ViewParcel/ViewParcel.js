@@ -3,6 +3,8 @@ import { getParcel, deleteParcel } from "../../Redux/Actions/parcelActions";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import UpdateParcel from "../UpdateParcel/UpdateParcel";
+import swal from "sweetalert";
 import "../ViewParcel/ViewParcel.css";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -36,15 +38,34 @@ const ViewParcel = () => {
   const [perPage, setPerPage] = useState(10);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Handle the Delete Parcel
   const handleDelete = (id) => {
-    console.log(id);
     dispatch(deleteParcel(id));
     dispatch(getParcel());
   };
 
-  console.log(parcel);
+  //Handle Edit
+  const handleEdit = (
+    id,
+    description,
+    sendernumber,
+    receivernumber,
+    startlocation,
+    endlocation
+  ) => {
+    navigate("/updateparcel", {
+      state: {
+        id: id,
+        description: description,
+        sendernumber: sendernumber,
+        receivernumber: receivernumber,
+        startlocation: startlocation,
+        endlocation: endlocation,
+      },
+    });
+  };
 
   // Fuction to display parcels
 
@@ -77,8 +98,17 @@ const ViewParcel = () => {
                 <td>
                   <MdEdit
                     size={21}
-                    color="#0000ff"
-                    // onClick={handleEdit(item.id)}
+                    color="#5f95ed"
+                    onClick={() => {
+                      handleEdit(
+                        item.id,
+                        item.description,
+                        item.sendernumber,
+                        item.receivernumber,
+                        item.startlocation,
+                        item.endlocation
+                      );
+                    }}
                   />
                 </td>
                 <td>

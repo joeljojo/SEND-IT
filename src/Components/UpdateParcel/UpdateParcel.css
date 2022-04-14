@@ -1,0 +1,22 @@
+.update {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgb(218, 214, 214);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.update form {
+  background-color: #ffffff;
+  padding: 30px;
+}
+.update form label {
+  float: left;
+}
+.update form input {
+  margin-top: 0px;
+}

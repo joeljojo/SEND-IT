@@ -30,7 +30,7 @@ export const DELETE_PARCEL = {
   FAIL: "DELETE_PARCEL_FAIL",
 };
 
-// export const TRACK_PARCEL = 'TRACK_PARCEL';
+
 
 export const EDIT_PARCEL = {
   REQUEST: "EDIT_PARCEL_REQUEST",
@@ -38,4 +38,4 @@ export const EDIT_PARCEL = {
   FAIL: "EDIT_PARCEL_FAIL",
 };
 
-//LoginAction
+
