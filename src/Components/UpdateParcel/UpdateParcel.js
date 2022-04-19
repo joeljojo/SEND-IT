@@ -4,6 +4,9 @@ import "../UpdateParcel/UpdateParcel.css";
 import { updateParcel } from "../../Redux/Actions/parcelActions";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import swal from "sweetalert";
 
 // #region constants
 
@@ -30,7 +33,6 @@ const UpdateParcel = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const id = location.state.id;
-  console.log(id);
 
   const [description, setDescription] = useState(location.state.description);
   const [sendernumber, setSenderNumber] = useState(location.state.sendernumber);
@@ -42,7 +44,8 @@ const UpdateParcel = () => {
   );
   const [endlocation, setEndLocation] = useState(location.state.endlocation);
 
-  const handleUpdateParcel = () => {
+  const handleUpdateParcel = (e) => {
+    e.preventDefault();
     const parcel = {
       description: description,
       sendernumber: sendernumber,
@@ -53,6 +56,25 @@ const UpdateParcel = () => {
     dispatch(updateParcel(id, parcel));
     // navigate("/parcels/viewparcel");
   };
+  const state = useSelector((state) => state.updateParcelState);
+  const { error, loading, status, success } = state;
+  if (status) {
+    swal({
+      icon: "success",
+      text: success,
+      timer: 3000,
+    });
+  } else if (loading) {
+    swal({
+      text: "Loading ...",
+    });
+  } else if (error != "") {
+    swal({
+      icon: "error",
+      text: error,
+      timer: 3000,
+    });
+  }
 
   return (
     <div className="update">

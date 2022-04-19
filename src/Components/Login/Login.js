@@ -35,12 +35,11 @@ const Login = () => {
   const loginState = useSelector((state) => state.loginState);
   const { error, loading, message, status } = loginState;
   useEffect(() => {
-    console.log(loginState);
-
     if (status) {
       swal({
         icon: "success",
         text: message,
+        timer: 3000,
       });
       setTimeout(() => {
         navigate("/parcels");
@@ -53,6 +52,7 @@ const Login = () => {
       swal({
         icon: "error",
         text: error,
+        timer: 3000,
       });
     }
   }, [loginState]);

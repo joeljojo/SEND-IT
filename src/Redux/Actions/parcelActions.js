@@ -104,13 +104,14 @@ const updateParcel = (id, parcel) => async (dispatch) => {
     await Axios.put(`http://localhost:4700/parcel/${id}`, parcel).then(
       function (response) {
         //console.log(response);
+        dispatch({
+          type: EDIT_PARCEL.SUCCESS,
+          message: "Parcel Updated in successfuly",
+          success: response.data.success,
+          status: response.data.status,
+        });
       }
     );
-
-    dispatch({
-      type: EDIT_PARCEL.SUCCESS,
-      message: "Parcel Updated in successfuly",
-    });
   } catch (error) {
     dispatch({
       type: EDIT_PARCEL.FAIL,

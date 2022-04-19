@@ -31,6 +31,7 @@ const initialUpdateParcelState = {
   loading: false,
   status: false,
   message: "",
+  success: "",
 };
 // Send Parcel Reducer
 export const sendParcelReducer = (state = initialSendParcelState, action) => {
@@ -139,13 +140,14 @@ export const updateParcelReducer = (
     case EDIT_PARCEL.SUCCESS:
       return {
         loading: false,
-        message: "Parcel Deleted Successfully",
         error: "",
+        status: action.status,
+        success: action.success,
       };
+
     case EDIT_PARCEL.FAIL:
       return {
         loading: false,
-        message: "An Error Occured!",
         error: action.error,
       };
     default:
