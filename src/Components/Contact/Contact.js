@@ -1,27 +1,6 @@
 import React from "react";
 import "../Contact/Contact.css";
-import PropTypes from "prop-types";
 
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 const Contact = () => {
   return (
     <div className="contact">
@@ -81,9 +60,5 @@ const Contact = () => {
     </div>
   );
 };
-
-Contact.propTypes = propTypes;
-Contact.defaultProps = defaultProps;
-// #endregion
 
 export default Contact;

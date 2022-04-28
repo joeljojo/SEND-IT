@@ -3,37 +3,12 @@ import { getParcel, deleteParcel } from "../../Redux/Actions/parcelActions";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import UpdateParcel from "../UpdateParcel/UpdateParcel";
-import swal from "sweetalert";
 import "../ViewParcel/ViewParcel.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import PropTypes from "prop-types";
-
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 
 const ViewParcel = () => {
   const { parcel } = useSelector((state) => state.getParcelState);
-  const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
 
@@ -149,9 +124,5 @@ const ViewParcel = () => {
     </div>
   );
 };
-
-ViewParcel.propTypes = propTypes;
-ViewParcel.defaultProps = defaultProps;
-// #endregion
 
 export default ViewParcel;

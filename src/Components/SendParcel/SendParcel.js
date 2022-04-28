@@ -3,34 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
 import "../SendParcel/SendParcel.css";
 import { sendParcel } from "../../Redux/Actions/parcelActions";
-import Axios from "axios";
-import PropTypes from "prop-types";
-
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 
 const SendParcel = () => {
   const sendParcelState = useSelector((state) => state.sendParcelState);
   useEffect(() => {
-    const { error, loading, status, success, message } = sendParcelState;
+    cgit onst { error, loading, status, success } = sendParcelState;
     if (status) {
       swal({
         icon: "success",
@@ -131,9 +108,5 @@ const SendParcel = () => {
     </div>
   );
 };
-
-SendParcel.propTypes = propTypes;
-SendParcel.defaultProps = defaultProps;
-// #endregion
 
 export default SendParcel;

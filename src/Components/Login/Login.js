@@ -1,40 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Header from "../Header/Header";
 import swal from "sweetalert";
 import "../Login/Login.css";
-import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../Redux/Actions/loginActions";
 import { useDispatch, useSelector } from "react-redux";
-import PropTypes from "prop-types";
-
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const loginState = useSelector((state) => state.loginState);
-  const { error, loading, message, status } = loginState;
+
   useEffect(() => {
+    const { error, loading, message, status } = loginState;
     if (status) {
       swal({
         icon: "success",
@@ -48,17 +27,16 @@ const Login = () => {
       swal({
         text: "Loading ....",
       });
-    } else if (error != "") {
+    } else if (error !== "") {
       swal({
         icon: "error",
         text: error,
         timer: 3000,
       });
     }
-  }, [loginState]);
+  }, [loginState, navigate]);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const loginInput = (event) => {
     event.preventDefault();
@@ -111,9 +89,5 @@ const Login = () => {
     </div>
   );
 };
-
-Login.propTypes = propTypes;
-Login.defaultProps = defaultProps;
-// #endregion
 
 export default Login;

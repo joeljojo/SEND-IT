@@ -8,7 +8,7 @@ const initialState = {
   message: "",
   status: false,
 };
-
+//
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN.REQUEST:

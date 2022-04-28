@@ -3,30 +3,9 @@ import "../UserDashboard/UserDashboard.css";
 import { Link } from "react-router-dom";
 import { MdOutlineHome, MdSend, MdPreview, MdLogout } from "react-icons/md";
 import { Routes, Route, Navigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import SendParcel from "../SendParcel/SendParcel";
 import ViewParcel from "../ViewParcel/ViewParcel";
 
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 const UserDashboard = () => {
   return (
     <div>
@@ -88,9 +67,5 @@ const UserDashboard = () => {
     </div>
   );
 };
-
-UserDashboard.propTypes = propTypes;
-UserDashboard.defaultProps = defaultProps;
-// #endregion
 
 export default UserDashboard;

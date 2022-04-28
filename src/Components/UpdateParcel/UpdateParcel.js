@@ -1,33 +1,11 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../UpdateParcel/UpdateParcel.css";
 import { updateParcel } from "../../Redux/Actions/parcelActions";
-import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import swal from "sweetalert";
 
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 const UpdateParcel = () => {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -54,7 +32,7 @@ const UpdateParcel = () => {
       endlocation: endlocation,
     };
     dispatch(updateParcel(id, parcel));
-    // navigate("/parcels/viewparcel");
+    navigate("/parcels/viewparcel");
   };
   const state = useSelector((state) => state.updateParcelState);
   const { error, loading, status, success } = state;
@@ -68,7 +46,7 @@ const UpdateParcel = () => {
     swal({
       text: "Loading ...",
     });
-  } else if (error != "") {
+  } else if (error !== "") {
     swal({
       icon: "error",
       text: error,
@@ -131,14 +109,12 @@ const UpdateParcel = () => {
           }}
         />
         <button onClick={handleUpdateParcel}>Submit</button>
-        <button>Cancel</button>
+        <button>
+          <Link to={"/parcels/viewparcel"}>Cancel</Link>
+        </button>
       </form>
     </div>
   );
 };
-
-UpdateParcel.propTypes = propTypes;
-UpdateParcel.defaultProps = defaultProps;
-// #endregion
 
 export default UpdateParcel;

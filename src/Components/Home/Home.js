@@ -6,28 +6,7 @@ import Image from "../../Images/chapchap.jpg";
 import Multiple from "../../Images/multiple.png";
 import SaveMoney from "../../Images/save money.jpg";
 import SaveTime from "../../Images/save time.jpg";
-import PropTypes from "prop-types";
 
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 const Home = () => {
   return (
     <div>
@@ -47,7 +26,7 @@ const Home = () => {
         </div>
         <div className="right">
           <div className="image">
-            <img src={Image} alt="Image" />
+            <img src={Image} alt="Fast Delivery" />
           </div>
         </div>
       </div>
@@ -102,9 +81,5 @@ const Home = () => {
     </div>
   );
 };
-
-Home.propTypes = propTypes;
-Home.defaultProps = defaultProps;
-// #endregion
 
 export default Home;

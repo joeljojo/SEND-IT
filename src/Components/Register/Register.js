@@ -2,32 +2,8 @@ import React, { useState } from "react";
 import "../Register/Register.css";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
 
-// #region constants
-
-// #endregion
-
-// #region styled-components
-
-// #endregion
-
-// #region functions
-
-// #endregion
-
-// #region component
-const propTypes = {};
-
-const defaultProps = {};
-
-/**
- *
- */
 const Register = () => {
-  const sendParcelState = useSelector((state) => state.AxiossendParcelState);
-  console.log(sendParcelState);
   const [username, setUserName] = useState("");
   const [fullname, setFullName] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
@@ -115,9 +91,5 @@ const Register = () => {
     </div>
   );
 };
-
-Register.propTypes = propTypes;
-Register.defaultProps = defaultProps;
-// #endregion
 
 export default Register;
