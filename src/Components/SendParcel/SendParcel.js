@@ -7,7 +7,7 @@ import { sendParcel } from "../../Redux/Actions/parcelActions";
 const SendParcel = () => {
   const sendParcelState = useSelector((state) => state.sendParcelState);
   useEffect(() => {
-    cgit onst { error, loading, status, success } = sendParcelState;
+    const { error, loading, status, success } = sendParcelState;
     if (status) {
       swal({
         icon: "success",
