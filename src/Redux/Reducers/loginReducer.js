@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT } from "../types";
+import { USER_LOGIN} from "../types";
 // intial state
 
 const initialState = {
